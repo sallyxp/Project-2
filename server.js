@@ -19,8 +19,8 @@ const sess = {
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-        db: sequelize
-    })
+        db: sequelize,
+    }),
 };
 
 app.use(session(sess));
@@ -33,7 +33,7 @@ app.use(express.urlencoded({extended: true}));
 
 // app.use(express.static(path.join(__dirname, '<folder_name>')));
 
-app.use(routes);
+// app.use(routes);
 
 sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log(`Listening on port: ${PORT}. http://localhost:${PORT}`));
