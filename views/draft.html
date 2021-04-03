@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Nav bar -->
-    {{#if loggedIn}}
+    {{#if logged_in}}
     <div class="ui four item menu">
         <a class="active item" href="/">Home</a>
         <a class="item" href="/search">Search</a>
@@ -88,7 +88,9 @@
 
     </div>
 
-
+    {{if logged_in}}
+    <script src="../public/js/login.js"></script>
+    {{/if}}
     
 </body>
 </html>
