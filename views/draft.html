@@ -12,12 +12,22 @@
 </head>
 <body>
     <!-- Nav bar -->
+    {{#if loggedIn}}
     <div class="ui four item menu">
-        <a class="active item">Home</a>
-        <a class="item">Search</a>
-        <a class="item">Login</a>
-        <a class="item">Signup</a>
+        <a class="active item" href="/">Home</a>
+        <a class="item" href="/search">Search</a>
+        <a class="item" href="/dashboard">Dashboard</a>
+        <a class="item" href="/logout">Logout</a>
     </div>
+
+    {{else}}
+    <div class="ui four item menu">
+        <a class="active item" href="/">Home</a>
+        <a class="item" href="/search">Search</a>
+        <a class="item" href="/login">Login</a>
+        <a class="item" href="/signup">Signup</a>
+    </div>
+    {{/if}}
 
     <!-- Jumbotron equivelant/w search -->
     <div class="ui massive message">
@@ -77,6 +87,8 @@
         </div>
 
     </div>
+
+
     
 </body>
 </html>
