@@ -27,3 +27,7 @@ const commentFormHandler = async (event) => {
 document
     .querySelector('.comment-post-form')
     .addEventListener('submit', commentFormHandler);
+
+
+
+// The below allows the user to edit a comment
