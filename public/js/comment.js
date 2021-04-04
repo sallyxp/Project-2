@@ -1,4 +1,4 @@
-
+// The below allows the user to add comments
 
 const commentFormHandler = async (event) => {
     event.preventDefault();
