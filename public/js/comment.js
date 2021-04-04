@@ -30,4 +30,26 @@ document
 
 
 
-// The below allows the user to edit a comment
+// The below allows the user to delete a comment
+const delCommentHandler = async (event) => {
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+      const response = await fetch(`/api/restaurants/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to delete comment');
+      }
+  };
+  
+  document
+    .querySelector('.new-comment-form')
+    .addEventListener('submit', newFormHandler);
+  
+  document
+    .querySelector('.comment-list')
+    .addEventListener('click', delButtonHandler);
