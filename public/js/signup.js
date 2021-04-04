@@ -21,6 +21,6 @@ const signupFormHandler = async (event) => {
 };
 
 // --> event listener needs to be adapted to handlebars id
-// document
-//     .querySelector('.signup-form')
-//     .addEventListener('submit', signupFormHandler);
+document
+    .querySelector('.signup-form')
+    .addEventListener('submit', signupFormHandler);
