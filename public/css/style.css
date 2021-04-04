@@ -1,0 +1,16 @@
+h1, h2 {
+    text-align: center;
+}
+
+.searchEl {
+    text-align: center;
+}
+
+.ui.segment {
+    margin: 10%;
+}
+
+.segment{
+    width: 80%;
+    /* margin: 5%; */
+}
