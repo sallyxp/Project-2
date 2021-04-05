@@ -32,7 +32,7 @@ router.get('/', withAuth, async (req, res) => {
         const reviews = reviewData.map((review) => review.get({ plain: true }));
 
         // Pass serialized data and session flag into template
-        res.render('homepage', {
+        res.render('dashboard', {
             reviews,
             logged_in: req.session.logged_in
         });

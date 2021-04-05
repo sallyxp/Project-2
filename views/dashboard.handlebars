@@ -8,7 +8,7 @@
 
                 <div class="field required">
                     <label>Title</label>
-                    <input type="text" name="review-title" placeholder="Title" id="review-body">
+                    <input type="text" name="review-title" placeholder="Title" id="review-title">
                 </div>
 
                 <div class="field required">
@@ -34,7 +34,7 @@
             <h3>Your Reviews: </h3>
             {{#each reviews as |review|}}
             <div class="ui raised">
-                <h4><a href="/reviews/{{review.id}}">{{review.name}}</a></h4>
+                <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
             </div>
             <div class="ui" id="delete-review">
                 <button type="submit" class="ui button" id="delete-review-btn" data-id="{{review.id}}">Delete</button>
@@ -49,4 +49,4 @@
 <script src="/js/script.js"></script>
 {{/if}}
 
-<script src="/js/dashboard.js"></script>
+<script src="/js/review.js"></script>
