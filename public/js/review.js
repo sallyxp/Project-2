@@ -86,7 +86,7 @@ const delButtonHandler = async () => {
 // 5- EVENT LISTENERS
 // 5a- add review form submit button
 document
-    .querySelector('.new-review-form') // class to include in handlebars form
+    .querySelector('.review-form') // class to include in handlebars form
     .addEventListener('submit', addReviewHandler);
 
 // 5b- edit review form submit button
