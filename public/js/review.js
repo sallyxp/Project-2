@@ -5,12 +5,12 @@ const addReviewHandler = async (event) => {
     const title = document.querySelector('#review-title').value.trim(); // IDs to add in the handlebars
     const review_content = document.querySelector('#review-body').value.trim(); // IDs to add in the handlebars
     // ------> restaurant_id variable might need to be changed
-    const restaurant_id = document.querySelector('#restaurant-id').value;
+    //const restaurant_id = document.querySelector('#restaurant-id').value;
 
-    if (title && review_content && restaurant_id) {
+    if (title && review_content) {
         const response = await fetch('/api/reviews', {
             method: 'POST',
-            body: JSON.stringify({ title, review_content, restaurant_id }), // include restaurant_id in stringify?
+            body: JSON.stringify({ title, review_content }), // include restaurant_id in stringify?
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -90,11 +90,11 @@ document
     .addEventListener('submit', addReviewHandler);
 
 // 5b- edit review form submit button
-document
-    .querySelector('.edit-review-form') // class to include in handlebars form
-    .addEventListener('submit', editReviewHandler);
+// document
+//     .querySelector('.edit-review-form') // class to include in handlebars form
+//     .addEventListener('submit', editReviewHandler);
 
 // 5c- delete button listener
 document
-  .querySelector('.delete-review-btn')
+  .querySelector('#delete-review-btn')
   .addEventListener('click', delButtonHandler);
