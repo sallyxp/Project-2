@@ -38,7 +38,8 @@ User.init(
         len: {
           args: [8],
           msg: "Minimum password length is 8 characters" ,
-        },      
+        }, 
+        is: /^[a-zA-Z0-9]+$/i,     
       },
     },
   },

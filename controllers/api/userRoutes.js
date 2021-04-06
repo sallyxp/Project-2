@@ -26,7 +26,7 @@ router.post('/signup', async (req, res) => {
                 .json({ message: 'Please enter a username' });
             return;
         }
-        const validPassword = await userData.checkPassword(req.body.password);
+        const validPassword = await userData.checkPass(req.body.password);
 
         if (validPassword.length < 8) {
             res
