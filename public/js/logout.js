@@ -11,5 +11,4 @@ const logout = async () => {
     }
 };
 
-// --> event listener needs to be adapted to handlebars id
-// document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('#logout').addEventListener('click', logout);

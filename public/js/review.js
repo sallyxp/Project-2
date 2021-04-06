@@ -6,11 +6,12 @@ const addReviewHandler = async (event) => {
     const review_content = document.querySelector('#review-body').value.trim(); // IDs to add in the handlebars
     // ------> restaurant_id variable might need to be changed
     //const restaurant_id = document.querySelector('#restaurant-id').value;
+    const rating = document.querySelector('#review-rating').value;
 
-    if (title && review_content) {
+    if (title && review_content && rating) {
         const response = await fetch('/api/reviews', {
             method: 'POST',
-            body: JSON.stringify({ title, review_content }), // include restaurant_id in stringify?
+            body: JSON.stringify({ title, review_content, rating }), // include restaurant_id in stringify?
             headers: {
                 'Content-Type': 'application/json',
             },
