@@ -28,6 +28,16 @@
     <br>
     <br>
 
+    {{#if logged_in}}
+    <div class="ui raised very padded container segment">
+        <h4>Add a restaurant: </h4>
+        <button type="submit" class="ui button" id="add-restaurant-btn" data-id="{{restaurant.button}}">Add Restaurant</button>
+    </div>
+    {{/if}}
+
+    <br>
+    <br>
+
     {{#if reviews.length}}
     <div class="row">
         <div class="column">
