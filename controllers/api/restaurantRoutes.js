@@ -1,6 +1,6 @@
 //post routes including with auth for post editing
 const router = require('express').Router();
-const { Restaurant } = require('../../models');
+const { Review, Restaurant, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
           attributes: ['id', 'title', 'review_content', 'rating', 'date_created', 'user_id', 'restaurant_id'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['name']
           }
         },
         
@@ -69,7 +69,7 @@ router.get('/:id', (req, res) => {
       });
 });
 
-//POST post, authenticated users only 
+//POST Restaurant, authenticated users only 
 router.post('/', withAuth, (req, res) => {
     Restaurant.create({
       name: req.body.name,
