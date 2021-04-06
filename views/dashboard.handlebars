@@ -31,7 +31,22 @@
     {{#if logged_in}}
     <div class="ui raised very padded container segment">
         <h4>Add a restaurant: </h4>
-        <button type="submit" class="ui button" id="add-restaurant-btn" data-id="{{restaurant.button}}">Add Restaurant</button>
+        <form class="ui form review-form">
+    
+            <div class="field required">
+                <label>Restaurant Name: </label>
+                <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
+            </div>
+    
+            <div class="field required">
+                <label>Location</label>
+                <input type="text" name="restaurant-location" placeholder="Restaurant Location" id="restaurant-location">
+            </div>
+    
+            <a href="/restaurants/add">
+                <button type="submit" class="ui button">Add Restaurant</button>
+            </a>
+        </form>
     </div>
     {{/if}}
 
