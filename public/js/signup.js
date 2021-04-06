@@ -15,18 +15,23 @@ const signupFormHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/dashboard');
-            } 
-        else if (!password) {
+        } 
+        else if (!response.ok) {
            // alert(response.statusText);
-            alert("Password should be a minimum of 8 characters");
-           }
+            alert("Your email or password is invalid. Your password must contain at least one uppercase & one lowercase letter, in addition to a number.");
+            resetForm();
+        }
         else {
             alert(response.statusText);
-            }
+        }
            
         
     };
 };
+
+resetForm = () => {
+    document.getElementById("signup-form").reset();
+}
 
 // --> event listener needs to be adapted to handlebars id
 document
