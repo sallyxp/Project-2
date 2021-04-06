@@ -182,9 +182,48 @@
 
     <script src="../public/js/dashboard.js"></script>
 
+    <!-- Post/Edit User Comment -->
+    <div class="row">
+      <div class="column">
+        <div class="ui raised very padded text container segment">
+          <h2>
+            {{name}}
+            {{#if logged_in}}
+            <a href="/reviews/edit/{{id}}">
+              <button type="submit" class="ui button" id="edit-review-btn" data-id="{{review.id}}">Edit</button>
+            </a>
+            {{/if}}
+          </h2>
+
+          <div class="row">
+            <div class="column">
+              <p>{{description}}</p>
+            </div>
+          </div>
+        </div>
+
+        {{#if logged_in}}
+        <div class="ui raised very padded container segment">
+          <h4>Comment on this post: </h4>
+          <form class="ui form new-comment-form">
+
+            <div class="required">
+              <label>Comment: </label>
+              <textarea id="comment-body" name="comment-body" placeholder="Comment"></textarea>
+            </div>
+            <br>
+            <button type="submit" class="ui button" id="add-comment-btn" data-id="{{comment.button}}">Add Comment</button>
+          </form>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+
+    {{> comments comments}}
+    <script src="/js/comment.js"></script>
 
     <!-- User Comments -->
-    <section class="ui card center">
+    <section class="ui card center raised">
       {{#each this}}
       <div class="content">
         <div class="description">
