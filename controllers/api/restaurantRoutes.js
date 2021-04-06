@@ -1,6 +1,6 @@
 //post routes including with auth for post editing
 const router = require('express').Router();
-const { Review, Restaurant, User, Comment } = require('../../models');
+const { Restaurant } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -11,8 +11,7 @@ router.get('/', (req, res) => {
             'id',
             'name',
             'location'
-            
-        ],
+       ],
       order: [['name', 'location']],
       include: [
         {
@@ -69,13 +68,14 @@ router.get('/:id', (req, res) => {
       });
 });
 
-//POST Restaurant, authenticated users only 
-router.post('/', withAuth, (req, res) => {
-    Restaurant.create({
+//POST post, authenticated users only 
+//with auth - temporarily removed ******
+router.post('/',  (req, res) => {
+  console.log("here");  
+  Restaurant.create({
       name: req.body.name,
-      location: req.body.location,
-      user_id: req.session.user_id
-    })
+      location: req.body.location
+        })
       .then(RestaurantData => res.json(RestaurantData))
       .catch(err => {
         console.log(err);
@@ -108,7 +108,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 //DELETE post by id, authenticated users only 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Restaurant.destroy({
       where: {
         id: req.params.id
