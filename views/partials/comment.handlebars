@@ -1,0 +1,13 @@
+<!-- User Comments -->
+<section class="ui card center">
+    {{#each this}}
+    <div class="content">
+        <div class="description">
+            <p>{{this.text}}</p>
+        </div>
+    </div>
+    <div class="extra content">
+        <p>{{this.user.name}}</p>
+    </div>
+    {{/each}}
+</section>
