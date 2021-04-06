@@ -38,11 +38,7 @@ User.init(
         len: {
           args: [8],
           msg: "Minimum password length is 8 characters" ,
-        },
-        isInt: {  
-          args: [true],
-          msg: "Your password must contain at least one integer",
-        },
+        },      
       },
     },
   },
