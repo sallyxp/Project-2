@@ -18,8 +18,7 @@ const signupFormHandler = async (event) => {
             } 
         else if (!password) {
            // alert(response.statusText);
-          
-               alert("Password should be a mixture of Uppercase, lowercase and numbers");
+            alert("Password should be a mixture of Uppercase, lowercase and numbers");
            }
            
         
