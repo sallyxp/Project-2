@@ -1,4 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
 // create our Restaurant model
@@ -25,6 +26,7 @@ Restaurant.init(
     {
       sequelize,
       freezeTableName: true,
+      timestamps: false,
       underscored: true,
       modelName: 'restaurant'
     }
