@@ -5,6 +5,7 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#email-signup').value.trim(); // use this id in handlebars or change to correspond
     const password = document.querySelector('#password-signup').value.trim(); // use this id in handlebars or change to correspond
 
+   
     if (name && email && password) {
         const response = await fetch('/api/users', {
             method: 'POST',
@@ -14,10 +15,17 @@ const signupFormHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/dashboard');
-        } else {
+            } 
+        else if (!password) {
+           // alert(response.statusText);
+            alert("Password should be a minimum of 8 characters");
+           }
+        else {
             alert(response.statusText);
-        }
-    }
+            }
+           
+        
+    };
 };
 
 // --> event listener needs to be adapted to handlebars id
