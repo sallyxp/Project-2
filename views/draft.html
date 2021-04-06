@@ -159,6 +159,31 @@
       <br>
       <br>
 
+      {{#if logged_in}}
+      <div class="ui raised very padded container segment">
+          <h4>Add a restaurant: </h4>
+          <form class="ui form review-form">
+
+            <div class="field required">
+              <label>Restaurant Name: </label>
+              <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
+            </div>
+
+            <div class="field required">
+              <label>Location</label>
+              <input type="text" name="restaurant-location" placeholder="Restaurant Location" id="restaurant-location">
+            </div>
+
+            <a href="/restaurants/add">
+              <button type="submit" class="ui button">Add Restaurant</button>
+            </a>
+          </form>
+      </div>
+      {{/if}}
+
+      <br>
+      <br>
+
       {{#if reviews.length}}
       <div class="row">
         <div class="column">
@@ -235,6 +260,38 @@
       </div>
       {{/each}}
     </section>
+
+    <!-- Restaurant -->
+    <div class="row">
+      <div class="column">
+          <div class="ui raised very padded text container segment">
+              <h2>
+                  {{name}}
+              </h2>
+  
+              <div class="row">
+                  <div class="column">
+                      <h3>{{location}}</h3>
+                  </div>
+              </div>
+
+              {{#if reviews.length}}
+              <div class="row">
+                <div class="column">
+                  <h3>Reviews for this restaurant: </h3>
+                  {{#each reviews as |review|}}
+                  <div class="ui raised">
+                    <h4><a href="/reviews/{{review.id}}">{{review.name}}</a></h4>
+                  </div>
+                  {{/each}}
+                </div>
+                {{/if}}
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="/js/addrestaurant.js"></script>
     
 </body>
 </html>

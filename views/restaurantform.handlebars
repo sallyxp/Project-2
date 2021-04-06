@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="column">
+        <div class="ui raised very padded text container segment">
+            <h2>
+                {{name}}
+            </h2>
+
+            <div class="row">
+                <div class="column">
+                    <h3>{{location}}</h3>
+                </div>
+            </div>
+
+            {{#if reviews.length}}
+            <div class="row">
+                <div class="column">
+                    <h3>Reviews for this restaurant: </h3>
+                    {{#each reviews as |review|}}
+                    <div class="ui raised">
+                        <h4><a href="/reviews/{{review.id}}">{{review.name}}</a></h4>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/addrestaurant.js"></script>
