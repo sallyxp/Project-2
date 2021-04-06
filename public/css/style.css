@@ -10,7 +10,11 @@ h1, h2 {
     margin: 10%;
 }
 
-.segment{
+.segment {
     width: 80%;
     /* margin: 5%; */
+}
+
+.ui.card {
+    margin:auto
 }
