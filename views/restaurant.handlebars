@@ -11,13 +11,24 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="right floated column">
+                    <a href="/dashboard">
+                        <button class="positive ui button">
+                            <i class="fa fa-plus"></i> Add a Review
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+
             {{#if reviews.length}}
             <div class="row">
                 <div class="column">
                     <h3>Reviews for this restaurant: </h3>
                     {{#each reviews as |review|}}
                     <div class="ui raised">
-                        <h4><a href="/reviews/{{review.id}}">{{review.name}}</a></h4>
+                        <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
                     </div>
                     {{/each}}
                 </div>
@@ -26,5 +37,3 @@
         </div>
     </div>
 </div>
-
-<script src="/js/addrestaurant.js"></script>

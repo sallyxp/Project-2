@@ -64,19 +64,20 @@ router.get('/:id', (req, res) => {
 
 //POST post, authenticated users only 
 //with auth - temporarily removed ******
-router.post('/',  (req, res) => {
-  console.log("here");  
+router.post('/', (req, res) => {
+  console.log("here");
   Restaurant.create({
-      name: req.body.name,
-      location: req.body.location
-        })
-      .then(RestaurantData => res.json(RestaurantData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+    name: req.body.name,
+    location: req.body.location
+  })
+    .then(RestaurantData => res.json(RestaurantData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
+// We won't give users the option to edit restaurants
 //PUT post by id, authenticated users only 
 //with auth - temporarily removed ******
 router.put('/:id', (req, res) => {
@@ -104,22 +105,22 @@ router.put('/:id', (req, res) => {
 
 //DELETE post by id, authenticated users only 
 router.delete('/:id', (req, res) => {
-    Restaurant.destroy({
-      where: {
-        id: req.params.id
+  Restaurant.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(RestaurantData => {
+      if (!RestaurantData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
       }
+      res.json(RestaurantData);
     })
-      .then(RestaurantData => {
-        if (!RestaurantData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-        res.json(RestaurantData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-  
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;
