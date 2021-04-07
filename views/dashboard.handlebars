@@ -1,6 +1,8 @@
 <div class="ui raised very padded text container segment">
     <h2 class="ui header">User Dashboard</h2>
-
+    <h4 class="ui header">Welcome, {{name}}</h4>
+    {{!-- Add conditional statement around New REview section to only show if restaurants exists, else show something to
+    say 'Add a restaurant first' --}}
     <div class="row">
         <div class="column">
             <h3>Write a New Review: </h3>
@@ -9,6 +11,22 @@
                 <div class="field required">
                     <label>Title</label>
                     <input type="text" name="review-title" placeholder="Title" id="review-title">
+                </div>
+
+                <div class="field required">
+                    <label>Select a Restaurant</label>
+                    <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="restaurant-select" id="restaurant-select">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Select Restaurant</div>
+                        <div class="menu">
+                            {{#each restaurants as |restaurant|}}
+                             <div class="item" data-value="{{restaurant.id}}" value="{{restaurant.id}}">
+                                   {{restaurant.name}}, {{restaurant.location}}
+                             </div>
+                            {{/each}}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="field required">
@@ -33,11 +51,13 @@
                                 3
                             </div>
                             <div class="item" data-value="4" value="4">
-                                <i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i>
+                                <i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i
+                                    class="star icon"></i>
                                 4
                             </div>
                             <div class="item" data-value="5" value="5">
-                                <i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i class="star icon"></i>
+                                <i class="star icon"></i><i class="star icon"></i><i class="star icon"></i><i
+                                    class="star icon"></i><i class="star icon"></i>
                                 5
                             </div>
                         </div>
@@ -59,17 +79,18 @@
     <div class="ui raised very padded container segment">
         <h4>Add a restaurant: </h4>
         <form class="ui form new-restaurant-form">
-    
+
             <div class="field required">
                 <label>Restaurant Name: </label>
                 <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
             </div>
-    
+
             <div class="field required">
                 <label>Location</label>
-                <input type="text" name="restaurant-location" placeholder="Restaurant Location" id="restaurant-location">
+                <input type="text" name="restaurant-location" placeholder="Restaurant Location"
+                    id="restaurant-location">
             </div>
-                <button type="submit" class="ui button">Add Restaurant</button>
+            <button type="submit" class="ui button">Add Restaurant</button>
         </form>
     </div>
     {{/if}}
@@ -91,6 +112,23 @@
             {{/each}}
         </div>
         {{/if}}
+    </div>
+
+    {{!-- {{#if restaurants.length}} --}}
+    <div class="row">
+        <div class="column">
+            <h3>Your Restaurants: </h3>
+            {{!-- <p>{{restaurants.name}}</p> --}}
+            {{#each restaurants as |restaurant|}}
+            <div class="ui raised">
+                <h4><a href="/restaurants/{{restaurant.id}}">{{restaurant.name}}, {{restaurant.location}}</a></h4>
+            </div>
+            <div class="ui" id="delete-restaurant">
+                <button type="submit" class="ui button" id="delete-restaurant-btn" data-id="{{restaurant.id}}">Delete</button>
+            </div>
+            {{/each}}
+        </div>
+        {{!-- {{/if}} --}}
     </div>
 </div>
 
