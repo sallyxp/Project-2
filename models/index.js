@@ -28,6 +28,7 @@ Restaurant.hasMany(Review, { //one to many
     foreignKey: 'restaurant_id'
 });
 
+//testing a change here from belongsto to hasone
 Review.belongsTo(Restaurant, {//one to many
     foreignKey: 'restaurant_id'
 });
@@ -36,6 +37,8 @@ Review.hasMany(Comment, { //one to many
     foreignKey: 'review_id'
 });
 
+
+//testing a change here from belongsto to hasone
 Comment.belongsTo(Review, {//one to many
     foreignKey: 'review_id'
 });
