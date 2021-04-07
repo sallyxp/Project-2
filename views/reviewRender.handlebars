@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="column">
+        <h3>Reviews for {{restaurant.name}} </h3>
+        {{#each reviews as |review|}}
+        <div class="ui raised">
+            <h4>{{review.title}}</h4>
+            <p>{{review.rating}}</p>
+            <p>{{review.review_content}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>
