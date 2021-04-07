@@ -17,7 +17,7 @@
                     <h3>Reviews for this restaurant: </h3>
                     {{#each reviews as |review|}}
                     <div class="ui raised">
-                        <h4><a href="/reviews/{{review.id}}">{{review.name}}</a></h4>
+                        <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
                     </div>
                     {{/each}}
                 </div>
@@ -27,4 +27,3 @@
     </div>
 </div>
 
-<script src="/js/addrestaurant.js"></script>

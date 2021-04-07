@@ -58,7 +58,7 @@
     {{#if logged_in}}
     <div class="ui raised very padded container segment">
         <h4>Add a restaurant: </h4>
-        <form class="ui form review-form">
+        <form class="ui form new-restaurant-form">
     
             <div class="field required">
                 <label>Restaurant Name: </label>
@@ -70,9 +70,9 @@
                 <input type="text" name="restaurant-location" placeholder="Restaurant Location" id="restaurant-location">
             </div>
     
-            <a href="/restaurants/add">
+            {{!-- <a href="/restaurants/add"> --}}
                 <button type="submit" class="ui button">Add Restaurant</button>
-            </a>
+            {{!-- </a> --}}
         </form>
     </div>
     {{/if}}
@@ -105,3 +105,4 @@
 {{/if}}
 
 <script src="/js/review.js"></script>
+<script src="/js/addrestaurant.js"></script>
