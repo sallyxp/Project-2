@@ -3,7 +3,6 @@
     <h4 class="ui header">Welcome, {{user.name}}</h4>
     {{!-- Add conditional statement around New REview section to only show if restaurants exists, else show something to
     say 'Add a restaurant first' --}}
-    <p>hello {{logged_in}}</p>
     <div class="row">
         <div class="column">
             <h3>Write a New Review: </h3>
@@ -119,7 +118,6 @@
     <div class="row">
         <div class="column">
             <h3>Your Restaurants: </h3>
-            {{!-- <p>{{restaurants.name}}</p> --}}
             {{#each restaurants as |restaurant|}}
             <div class="ui raised">
                 <h4><a href="/restaurants/{{restaurant.id}}">{{restaurant.name}}, {{restaurant.location}}</a></h4>

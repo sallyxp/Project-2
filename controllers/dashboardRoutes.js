@@ -33,59 +33,59 @@ const withAuth = require('../utils/auth');
 // });
 
 // Gets all reviews
-router.get('/', async (req, res) => {
-    try {
-        const reviewData = await Review.findAll({
-            include: [
-                // Get all comments from reviews
-                {
-                    model: Comment,
-                    include: {
-                        model: User,
-                        attributes: ['name'],
-                    }
-                },
-                // Get the user name for the review
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
-                // Get the restaurant name of the review
-                {
-                    model: Restaurant,
-                    attributes: ['name', 'location'],
-                },
-            ],
-        });
+// router.get('/', async (req, res) => {
+//     try {
+//         const reviewData = await Review.findAll({
+//             include: [
+//                 // Get all comments from reviews
+//                 {
+//                     model: Comment,
+//                     include: {
+//                         model: User,
+//                         attributes: ['name'],
+//                     }
+//                 },
+//                 // Get the user name for the review
+//                 {
+//                     model: User,
+//                     attributes: ['name'],
+//                 },
+//                 // Get the restaurant name of the review
+//                 {
+//                     model: Restaurant,
+//                     attributes: ['name', 'location'],
+//                 },
+//             ],
+//         });
 
-        const restaurantData = await Restaurant.findAll({
-            include: {
-                model: Review,
-                include: {
-                    model: User,
-                    attributes: ['name'],
-                }
-            },
-        });
-        // Serialize data so the template can read it
-        const reviews = reviewData.map((review) => review.get({ plain: true }));
-        const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+//         const restaurantData = await Restaurant.findAll({
+//             include: {
+//                 model: Review,
+//                 include: {
+//                     model: User,
+//                     attributes: ['name'],
+//                 }
+//             },
+//         });
+//         // Serialize data so the template can read it
+//         const reviews = reviewData.map((review) => review.get({ plain: true }));
+//         const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
         
-        console.log(reviews);
-        console.log(restaurants);
+//         console.log(reviews);
+//         console.log(restaurants);
 
-        // Pass serialized data and session flag into template
-        res.render('dashboard', 
-        { 
-            reviews: reviews,
-            restaurants: restaurants, 
-            logged_in: req.session.logged_in
-        });
+//         // Pass serialized data and session flag into template
+//         res.render('dashboard', 
+//         { 
+//             reviews: reviews,
+//             restaurants: restaurants, 
+//             logged_in: req.session.logged_in
+//         });
 
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 //-----is this route going to change? 
 // Gets reviews by id

@@ -18,9 +18,6 @@ async function newFormHandler(event) {
 
   if (response.ok) {
     // send to page that shows all restaurants
-    // console.log(response);
-    // const message = await response.json();
-    // console.log(message);
     document.location.replace('/dashboard');
   } else {
     alert(response.statusText);

@@ -83,7 +83,7 @@ router.get('/reviews/:id', async (req, res) => {
 
 // Gets dashboard page withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
-    console.log('homeroute is here')
+
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
@@ -92,7 +92,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
                 model: Review
             }],
         });
+        // Get all restaurant data
         const restaurantData = await Restaurant.findAll();
+        
+        // Serialize data so the template can read it
         const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
         const user = userData.get({ plain: true });
 
