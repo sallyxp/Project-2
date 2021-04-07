@@ -21,4 +21,5 @@ h1, h2 {
 
 .rating-stars {
     color: gold !important;
+    text-shadow: 0 0 10px yellow;
 }
