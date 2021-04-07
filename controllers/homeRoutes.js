@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
 // Gets reviews by id
 router.get('/reviews/:id', async (req, res) => {
     try {
-        const reviewData = await Review.findByPk(req.params.id,{
+        const reviewData = await Review.findByPk(req.params.id, {
             include: [
                 // Get all comments from reviews
                 {
@@ -83,17 +83,22 @@ router.get('/reviews/:id', async (req, res) => {
 
 // Gets dashboard page withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
+    console.log('homeroute is here')
     try {
         // Find the logged in user based on the session ID
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
-            include: [{ model: Review }],
+            include: [{
+                model: Review
+            }],
         });
-
+        const restaurantData = await Restaurant.findAll();
+        const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
         const user = userData.get({ plain: true });
 
         res.render('dashboard', {
-            ...user,
+            user: user,
+            restaurants: restaurants,
             logged_in: true
         });
     } catch (err) {

@@ -3,35 +3,35 @@ const { Restaurant, User, Review, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Gets all restaurants
-router.get('/', async (req, res) => {
-    console.log('here')
-     try {
-         const restaurantData = await Restaurant.findAll({
-             include:   {
-                 model: Review,
-                 include: {
-                     model: User,
-                     attributes: ['name'],
-                 }
-             },
-         });
- 
-         // Serialize data so the template can read it
-         const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
-         
-         console.log(restaurants);
-         // Pass serialized data and session flag into template
-         res.render('dashboard', {
-             restaurants,
-             logged_in: req.session.logged_in
-         });
- 
-         console.log(restaurants);
-     } catch (err) {
-         res.status(500).json(err);
-     }
- });
- 
+// router.get('/restaurants', async (req, res) => {
+//     console.log('here')
+//     try {
+//         const restaurantData = await Restaurant.findAll({
+//             include: {
+//                 model: Review,
+//                 include: {
+//                     model: User,
+//                     attributes: ['name'],
+//                 }
+//             },
+//         });
+
+//         // Serialize data so the template can read it
+//         const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+
+//         console.log(restaurants);
+//         // Pass serialized data and session flag into template
+//         res.render('dashboard', {
+//             restaurants,
+//             logged_in: req.session.logged_in
+//         });
+
+//         console.log(restaurants);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
 // Gets all reviews
 router.get('/', async (req, res) => {
     try {
@@ -58,15 +58,30 @@ router.get('/', async (req, res) => {
             ],
         });
 
+        const restaurantData = await Restaurant.findAll({
+            include: {
+                model: Review,
+                include: {
+                    model: User,
+                    attributes: ['name'],
+                }
+            },
+        });
         // Serialize data so the template can read it
         const reviews = reviewData.map((review) => review.get({ plain: true }));
+        const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+        
+        console.log(reviews);
+        console.log(restaurants);
 
         // Pass serialized data and session flag into template
-        res.render('dashboard', {
-            reviews,
+        res.render('dashboard', 
+        { 
+            reviews: reviews,
+            restaurants: restaurants, 
             logged_in: req.session.logged_in
         });
-        
+
     } catch (err) {
         res.status(500).json(err);
     }

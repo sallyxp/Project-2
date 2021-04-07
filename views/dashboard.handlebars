@@ -1,8 +1,9 @@
 <div class="ui raised very padded text container segment">
     <h2 class="ui header">User Dashboard</h2>
-    <h4 class="ui header">Welcome, {{name}}</h4>
+    <h4 class="ui header">Welcome, {{user.name}}</h4>
     {{!-- Add conditional statement around New REview section to only show if restaurants exists, else show something to
     say 'Add a restaurant first' --}}
+    <p>hello {{logged_in}}</p>
     <div class="row">
         <div class="column">
             <h3>Write a New Review: </h3>
@@ -98,11 +99,11 @@
     <br>
     <br>
 
-    {{#if reviews.length}}
+    {{#if user.reviews.length}}
     <div class="row">
         <div class="column">
             <h3>Your Reviews: </h3>
-            {{#each reviews as |review|}}
+            {{#each user.reviews as |review|}}
             <div class="ui raised">
                 <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
             </div>
