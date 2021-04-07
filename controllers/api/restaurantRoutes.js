@@ -1,18 +1,18 @@
 //post routes including with auth for post editing
 const router = require('express').Router();
-const { Restaurant } = require('../../models');
+const { Review, Restaurant, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 //GET all restaurants with reviews
 router.get('/', (req, res) => {
-    Post.findAll({
+    Restaurant.findAll({
         attributes: [
             'id',
             'name',
             'location'
        ],
-      order: [['name', 'location']],
+      order: [['name']],
       include: [
         {
           model: Review,
@@ -21,11 +21,9 @@ router.get('/', (req, res) => {
             model: User,
             attributes: ['name']
           }
-        },
-        
-      ]
-    })
-      .then(RestaurantData => res.json(RestaurantData))
+        },      ]
+    }) 
+    .then(RestaurantData => res.json(RestaurantData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -48,11 +46,7 @@ router.get('/:id', (req, res) => {
           model: Review,
           attributes: ['id', 'title', 'review_content', 'rating', 'date_created', 'user_id', 'restaurant_id'],
         },
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'date_created', 'user_id', 'review_id'],
-          
-        }
+       
       ]
     })
       .then(RestaurantData => {
@@ -84,7 +78,8 @@ router.post('/',  (req, res) => {
 });
 
 //PUT post by id, authenticated users only 
-router.put('/:id', withAuth, (req, res) => {
+//with auth - temporarily removed ******
+router.put('/:id', (req, res) => {
     Restaurant.update({
         name: req.body.name,
         location: req.body.location
