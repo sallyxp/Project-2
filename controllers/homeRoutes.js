@@ -20,10 +20,10 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['name'],
                 },
-                // Get the restaurant name of the review
+                // Get the restaurant attributes of the review
                 {
                     model: Restaurant,
-                    attributes: ['name'],
+                    attributes: ['id', 'name', 'location'],
                 },
             ],
         });

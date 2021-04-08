@@ -62,20 +62,7 @@ router.put('/edit/:id', withAuth, async (req, res) => {
     }
 });
 
-// router.post('/:id', withAuth, async (req, res) => {
-//     console.log(req.body);
-//     console.log(req.session.user_id);
-//     try {
-//         const newComment = await Comment.create({
-//             comment_text: req.body.comment_text,
-//             post_id: parseInt(req.body.post_id),
-//             user_id: req.session.user_id,
-//         });
-//         res.status(200).json(newComment);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
+// Post comment on review
 router.post('/:id', withAuth, async (req, res) => {
     try {
         const newComment = await Comment.create({

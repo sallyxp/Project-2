@@ -4,51 +4,49 @@
             <h2>
                 {{name}}
             </h2>
-
-            <div class="row">
-                <div class="column">
-                    <h3>Location: {{location}}</h3>
-                </div>
-            </div>
+            <h3>Location: {{location}}</h3>
             <br>
             <br>
 
             {{#if reviews.length}}
             <div class="row">
-
-
                 <h3>Reviews for this restaurant: </h3>
-                {{#each reviews as |review|}}
-                <div class="column">
-                    <div class="ui card">
-                        <div class="content">
-                            <div class="ui raised header">
-                                <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
-                            </div>
-                            <div class="description">
-                                <p>{{review.rating}}</p>
-                                <p>{{review.review_content}}</p>
-                                <p>posted by {{user.name}} on {{format_date date_created}}</p>
-                            </div>
-                            <a href="/reviews/{{review.id}}">
-                                <button class="ui right floated button">
-                                    <i class="fa fa-plus"></i> Add a Comment
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
+                <div class="ui cards">
+                    {{#each reviews as |review|}}
 
-                {{/if}}
+                    <div class="card">
+                        <div class="content">
+                            <div class="ui header">
+                                <h3><a href="/reviews/{{review.id}}">{{review.title}}</a></h3>
+                            </div>
+                            <div class="ui star rating" data-rating="{{review.rating}}" data-max-rating="5"></div>
+
+                            <div class="description">
+                                {{review.review_content}}
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            posted by {{user.name}} on {{format_date date_created}}
+                        </div>
+                        <a href="/reviews/{{review.id}}/#comment-section">
+                            <div class="ui bottom attached button">
+                                <i class="add icon"></i>
+                                Add Comment
+                            </div>
+                        </a>
+                    </div>
+                    {{/each}}
+                </div>
             </div>
+            {{/if}}
+
 
             <br>
             <div class="row">
                 <div class="column">
                     <a href="/dashboard">
                         <button class="positive ui right floated button">
-                            <i class="fa fa-plus"></i> Add a Review
+                            <i class="add icon"></i> Add Review
                         </button>
                     </a>
                 </div>
@@ -56,3 +54,4 @@
         </div>
     </div>
 </div>
+<script src="/js/script.js"></script>

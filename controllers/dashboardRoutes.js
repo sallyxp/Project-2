@@ -1,3 +1,5 @@
+// -----------DASHBOARD ROUTES MOVED TO HOMEROUTES (keeping for ref but delete before submission)
+
 // const router = require('express').Router();
 // const { Restaurant, User, Review, Comment } = require('../models');
 // const withAuth = require('../utils/auth');
