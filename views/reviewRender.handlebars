@@ -3,6 +3,31 @@
     <p>posted by {{user.name}} on {{format_date date_created}}</p>
     <h4>{{title}}</h4>
     <p>{{rating}}</p>
-    <p>{{restaurant.location}}</p>
     <p>{{review_content}}</p>
 </div>
+<br>
+{{> comment comments}}
+<br>
+
+<div class="row">
+    <div class="column">
+        {{#if logged_in}}
+        <div class="ui raised very padded container segment">
+            <h4>Comment on this post: </h4>
+            <form class="ui form new-comment-form">
+
+                <div class="required">
+                    <label>Comment: </label>
+                    <textarea id="comment-body" name="comment-body" placeholder="Comment"></textarea>
+                </div>
+                <br>
+                <button type="submit" class="ui button" id="add-comment-btn" data-id="{{id}}">Add Comment</button>
+            </form>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+<br>
+
+<script src="/js/comment.js"></script>
