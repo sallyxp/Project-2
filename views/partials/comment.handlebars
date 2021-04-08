@@ -3,11 +3,11 @@
     {{#each this}}
     <div class="content">
         <div class="description">
-            <p>{{this.text}}</p>
+            <p>{{this.comment_text}}</p>
         </div>
     </div>
     <div class="extra content">
-        <p>{{this.user.name}}</p>
+        <p>posted by {{this.user.name}} on {{format_date date_created}}</p>
     </div>
     {{/each}}
 </section>

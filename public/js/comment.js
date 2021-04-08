@@ -19,8 +19,8 @@ const commentFormHandler = async (event) => {
             }
         });
         if (response.ok) {
-            alert('Success!')
-            //document.location.reload();
+            // alert('Success!')
+            document.location.reload();
         } else {
             alert(response.statusText);
         }
