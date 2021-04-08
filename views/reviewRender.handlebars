@@ -2,7 +2,7 @@
     <h3>Review for {{restaurant.name}}, {{restaurant.location}} </h3>
     <p>posted by {{user.name}} on {{format_date date_created}}</p>
     <h4>{{title}}</h4>
-    <p>{{rating}}</p>
+    <div class="ui star rating" data-rating="{{rating}}" data-max-rating="5"></div>
     <p>{{review_content}}</p>
 </div>
 
@@ -31,3 +31,5 @@
 <br>
 
 <script src="/js/comment.js"></script>
+
+<script src="/js/script.js"></script>
