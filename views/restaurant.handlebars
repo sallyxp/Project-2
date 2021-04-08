@@ -7,32 +7,51 @@
 
             <div class="row">
                 <div class="column">
-                    <h3>{{location}}</h3>
+                    <h3>Location: {{location}}</h3>
                 </div>
             </div>
+            <br>
+            <br>
 
+            {{#if reviews.length}}
             <div class="row">
-                <div class="right floated column">
+
+
+                <h3>Reviews for this restaurant: </h3>
+                {{#each reviews as |review|}}
+                <div class="column">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="ui raised header">
+                                <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
+                            </div>
+                            <div class="description">
+                                <p>{{review.rating}}</p>
+                                <p>{{review.review_content}}</p>
+                                <p>posted by {{user.name}} on {{format_date date_created}}</p>
+                            </div>
+                            <a href="/reviews/{{review.id}}">
+                                <button class="ui right floated button">
+                                    <i class="fa fa-plus"></i> Add a Comment
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+                {{/if}}
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="column">
                     <a href="/dashboard">
-                        <button class="positive ui button">
+                        <button class="positive ui right floated button">
                             <i class="fa fa-plus"></i> Add a Review
                         </button>
                     </a>
                 </div>
-            </div>
-
-
-            {{#if reviews.length}}
-            <div class="row">
-                <div class="column">
-                    <h3>Reviews for this restaurant: </h3>
-                    {{#each reviews as |review|}}
-                    <div class="ui raised">
-                        <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
-                    </div>
-                    {{/each}}
-                </div>
-                {{/if}}
             </div>
         </div>
     </div>
