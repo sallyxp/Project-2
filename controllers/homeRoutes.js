@@ -41,7 +41,33 @@ router.get('/', async (req, res) => {
     }
 });
 
-//-----is this route going to change? 
+// Gets all restaurants
+router.get('/restaurants', async (req, res) => {
+    try {
+        const restaurantData = await Restaurant.findAll({
+            include: {
+                model: Review,
+                include: {
+                    model: User,
+                    attributes: ['name'],
+                }
+            },
+        });
+
+        // Serialize data so the template can read it
+        const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+        
+        // Pass serialized data and session flag into template
+        res.render('restaurantPage', {
+            restaurants,
+            logged_in: req.session.logged_in
+        });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Gets reviews by id
 router.get('/reviews/:id', async (req, res) => {
     try {
