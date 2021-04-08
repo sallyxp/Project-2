@@ -23,12 +23,12 @@ form.addEventListener("submit", (e) => {
         return response.text();       
       })
       .then((data) => {
-        //Append to product page 
+        //Append to restaurant page 
         var data = JSON.parse(data); //Parse data from the uploaded image to JSON
         var imageurl = data.url; //Get the URL of the uploaded image 
         var div = document.querySelector("#product_image");
         var image = document.createElement("img");
-        image.setAttribute("id", "product-image");
+        image.setAttribute("id", "restaurant-image");
         image.width ="150";
         image.height ="150";
         image.src = imageurl; //Set the image source as the URL from JSON
