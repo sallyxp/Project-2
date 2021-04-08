@@ -1,11 +1,8 @@
 <div class="ui raised very padded text container segment">
-    <h3>Reviews for {{restaurant.name}} </h3>
-    {{#each reviews as |review|}}
-    <div class="ui raised">
-        <h4>{{review.title}}</h4>
-        <p>{{review.rating}}</p>
-        <p>{{restaurant.location}}</p>
-        <p>{{review.review_content}}</p>
-    </div>
-    {{/each}}
+    <h3>Reviews for {{restaurant.name}}, {{restaurant.location}} </h3>
+    <p>posted by {{user.name}} on {{format_date date_created}}</p>
+    <h4>{{title}}</h4>
+    <p>{{rating}}</p>
+    <p>{{restaurant.location}}</p>
+    <p>{{review_content}}</p>
 </div>

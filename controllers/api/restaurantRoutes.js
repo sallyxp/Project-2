@@ -5,62 +5,62 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 //GET all restaurants with reviews
-router.get('/', (req, res) => {
-    Restaurant.findAll({
-        attributes: [
-            'id',
-            'name',
-            'location'
-       ],
-      order: [['name']],
-      include: [
-        {
-          model: Review,
-          attributes: ['id', 'title', 'review_content', 'rating', 'date_created', 'user_id', 'restaurant_id'],
-          include: {
-            model: User,
-            attributes: ['name']
-          }
-        },      ]
-    }) 
-    .then(RestaurantData => res.json(RestaurantData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-});
+// router.get('/', (req, res) => {
+//     Restaurant.findAll({
+//         attributes: [
+//             'id',
+//             'name',
+//             'location'
+//        ],
+//       order: [['name']],
+//       include: [
+//         {
+//           model: Review,
+//           attributes: ['id', 'title', 'review_content', 'rating', 'date_created', 'user_id', 'restaurant_id'],
+//           include: {
+//             model: User,
+//             attributes: ['name']
+//           }
+//         },      ]
+//     }) 
+//     .then(RestaurantData => res.json(RestaurantData))
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+// });
 
-//GET restaurant by id 
-router.get('/:id', (req, res) => {
-    Restaurant.findOne({
-      where: {
-        id: req.params.id
-      },
-      attributes: [
-        'id',
-        'name',
-        'location'
-      ],
-      include: [
-        {
-          model: Review,
-          attributes: ['id', 'title', 'review_content', 'rating', 'date_created', 'user_id', 'restaurant_id'],
-        },
+// //GET restaurant by id 
+// router.get('/:id', (req, res) => {
+//     Restaurant.findOne({
+//       where: {
+//         id: req.params.id
+//       },
+//       attributes: [
+//         'id',
+//         'name',
+//         'location'
+//       ],
+//       include: [
+//         {
+//           model: Review,
+//           attributes: ['id', 'title', 'review_content', 'rating', 'date_created', 'user_id', 'restaurant_id'],
+//         },
        
-      ]
-    })
-      .then(RestaurantData => {
-        if (!RestaurantData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-        res.json(RestaurantData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-});
+//       ]
+//     })
+//       .then(RestaurantData => {
+//         if (!RestaurantData) {
+//           res.status(404).json({ message: 'No post found with this id' });
+//           return;
+//         }
+//         res.json(RestaurantData);
+//       })
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+// });
 
 //POST post, authenticated users only 
 //with auth - temporarily removed ******

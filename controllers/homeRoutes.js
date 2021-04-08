@@ -63,7 +63,7 @@ router.get('/reviews/:id', async (req, res) => {
                 // Get the restaurant name of the review
                 {
                     model: Restaurant,
-                    attributes: ['name'],
+                    attributes: ['name', 'location'],
                 },
             ],
         });
@@ -71,9 +71,39 @@ router.get('/reviews/:id', async (req, res) => {
         // Serialize data so the template can read it
         const reviews = reviewData.get({ plain: true });
 
+        console.log(reviews);
+
         // Pass serialized data and session flag into template
-        res.render('reviews', {
+        res.render('reviewRender', {
             ...reviews,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Get restaurants by id
+router.get('/restaurants/:id', async (req, res) => {
+    try {
+        const restaurantData = await Restaurant.findByPk(req.params.id, {
+            include:
+            // Get all reviews from restaurant
+            {
+                model: Review,
+                include: {
+                    model: User,
+                    attributes: ['name'],
+                }
+            },
+        });
+
+        // Serialize data so the template can read it
+        const restaurants = restaurantData.get({ plain: true });
+
+        // Pass serialized data and session flag into template
+        res.render('restaurant', {
+            ...restaurants,
             logged_in: req.session.logged_in
         });
     } catch (err) {
