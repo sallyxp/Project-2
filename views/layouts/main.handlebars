@@ -14,19 +14,19 @@
 <body>
     <!-- Nav bar -->
     {{#if logged_in}}
-    <div class="ui four item menu">
-        <a class="active item" href="/">Home</a>
-        <a class="item" href="/restaurants">Restaurants</a>
-        <a class="item" href="/dashboard">Dashboard</a>
-        <a class="item" id="logout">Logout</a>
+    <div class="ui four item menu nav-bar">
+        <a class="active item" href="/">Home<i class="fas fa-home"></i></a>
+        <a class="item" href="/restaurants">Restaurants <i class="fas fa-utensils"></i></a>
+        <a class="item" href="/dashboard">Dashboard <i class="fas fa-tachometer-alt"></i></a>
+        <a class="item" id="logout">Logout <i class="fas fa-sign-out-alt"></i></a>
     </div>
 
     {{else}}
-    <div class="ui four item menu">
-        <a class="active item" href="/">Home</a>
-        <a class="item" href="/restaurants">Restaurants</a>
-        <a class="item" href="/login">Login</a>
-        <a class="item" href="/signup">Signup</a>
+    <div class="ui four item menu nav-bar">
+        <a class="active item" href="/">Home <i class="fas fa-home"></i></a>
+        <a class="item" href="/restaurants">Restaurants <i class="fas fa-utensils"></i></a>
+        <a class="item" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
+        <a class="item" href="/signup">Signup <i class="fas fa-user-plus"></i></a>
     </div>
     {{/if}}
 
