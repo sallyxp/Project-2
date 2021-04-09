@@ -128,6 +128,8 @@
                     <div class="right floated content">
                         <button class="negative ui right floated button" id="delete-review-btn"
                             data-id="{{review.id}}"><i class="fa fa-trash"></i> Delete</button>
+                        <a href="/reviews/edit/{{review.id}}"><button class="positive ui right floated button"><i
+                                    class="fa fa-trash"></i> Edit</button></a>
                     </div>
                     <div class="content">
                         <div class="ui raised">
@@ -156,8 +158,8 @@
                     </div>
                     <div class="content">
                         <div class="ui raised">
-                            <h4><i class="fa fa-utensils"></i><a
-                                    href="/restaurants/{{restaurant.id}}"> {{restaurant.name}},
+                            <h4><i class="fa fa-utensils"></i><a href="/restaurants/{{restaurant.id}}">
+                                    {{restaurant.name}},
                                     {{restaurant.location}}</a></h4>
                         </div>
                     </div>

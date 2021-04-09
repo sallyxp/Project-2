@@ -187,4 +187,27 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// Renders edit page for specific Review post
+router.get('/reviews/edit/:id', withAuth, async (req, res) => {
+
+    try {
+        const editReviewData = await Review.findByPk(req.params.id);
+
+        if (!editReviewData) {
+            res.status(404).json({ message: 'No review found with this id!' });
+            return;
+        }
+
+        const edit = editReviewData.get({ plain: true });
+
+        res.render('edit', {
+            edit,
+            logged_in: req.session.logged_in
+        });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
