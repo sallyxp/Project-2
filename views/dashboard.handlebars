@@ -89,10 +89,22 @@
                 <input type="text" name="restaurant-location" placeholder="Restaurant Location"
                     id="restaurant-location">
             </div>
+
+{{!-- IMAGE UPLOAD --}}
+
+            <div class="rest-img">
+                <form id="form" method="post" enctype="multipart/form-data">
+                    <label for="rest-img">Restaurant Image: </label>
+                    <input type="file" id="rest-img" name="files[]" multiple>
+                    <div id="restaurant-image" width="150" height="150"></div>
+                    <button type="submit" id="upload-btn" class="ui button">Upload Image</button>
+                </form>
+            </div>
+
+            
             <button type="submit" class="ui button">Add Restaurant</button>
         </form>
         {{/if}}
-
     </div>
     <br>
     <br>
@@ -176,5 +188,6 @@
 </script>
 {{/if}}
 
+<script src="/js/Upload.js"></script>
 <script src="/js/review.js"></script>
 <script src="/js/addrestaurant.js"></script>

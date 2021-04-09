@@ -3,12 +3,19 @@ async function newFormHandler(event) {
 
   const name = document.querySelector('input[name="restaurant-name"]').value.trim();
   const location = document.querySelector('input[name="restaurant-location"]').value.trim();
+  const img_url = "";
+
+  // FOR IMAGE UPLOAD
+  // if(document.body.contains(imageEl)){
+  //   img_url = imageEl.src;
+  // }
 
   const response = await fetch(`/api/restaurants`, {
     method: 'POST',
     body: JSON.stringify({
       name,
-      location
+      location,
+      img_url,
     }),
     headers: {
       'Content-Type': 'application/json'
