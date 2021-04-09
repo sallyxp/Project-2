@@ -1,10 +1,10 @@
 <div class="row">
     <div class="column">
         <div class="ui raised very padded text container segment">
-            <h2>
+            <h1 class="ui header">
                 {{name}}
-            </h2>
-            <h3>Location: {{location}}</h3>
+            </h1>
+            <h2 class="ui sub header">{{location}}</h2>
             <br>
             <br>
 
@@ -29,7 +29,7 @@
                             posted by {{user.name}} on {{format_date date_created}}
                         </div>
                         <a href="/reviews/{{review.id}}">
-                            <div class="ui bottom attached button">
+                            <div class="ui bottom yellow attached button">
                                 <i class="add icon"></i>
                                 Add Comment
                             </div>
