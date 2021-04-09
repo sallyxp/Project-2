@@ -13,11 +13,18 @@ const loginFormHandler = async (event) => {
 
         if (response.ok) {
             document.location.replace('/dashboard');
+        } else if (!response.ok){
+            alert("Your email or password is invalid. Your password must contain at least one uppercase & one lowercase letter, in addition to a number.");
+            resetForm();
         } else {
             alert(response.statusText);
         }
     }
 };
+
+resetForm = () => {
+    document.getElementById("login-form").reset();
+}
 
 document
     .querySelector('.login-form')
