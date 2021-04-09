@@ -1,9 +1,9 @@
 <div class="ui raised very padded text container segment">
-    <h2 class="ui header">User Dashboard</h2>
-    <h4 class="ui header">Welcome, {{user.name}}</h4>
+    <h2 class="ui header">{{user.name}}'s Dashboard</h2>
     {{!-- Add conditional statement around New REview section to only show if restaurants exists, else show something to
     say 'Add a restaurant first' --}}
     <div class="row">
+        {{#if restaurants.length}}
         <div class="column">
             <h3>Write a New Review: </h3>
             <form class="ui form review-form">
@@ -73,26 +73,42 @@
                     <button type="submit" class="ui button">Submit</button>
             </form>
         </div>
+        {{/if}}
 
         <br>
 
         {{#if logged_in}}
         <h4>Add a restaurant: </h4>
-        <form class="ui form new-restaurant-form">
-            <div class="field required">
-                <label>Restaurant Name: </label>
-                <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
+        <div>
+            <form class="ui form new-restaurant-form">
+                <div class="field required">
+                    <label>Restaurant Name: </label>
+                    <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
+                </div>
+
+                <div class="field required">
+                    <label>Location</label>
+                    <input type="text" name="restaurant-location" placeholder="Restaurant Location"
+                        id="restaurant-location">
+                </div>
+                <button type="submit" class="ui button">Add Restaurant</button>
+            </form>
+
+                    {{!-- IMAGE UPLOAD --}}
+
+            <div class="rest-img">
+                <form id="form">
+                    <label for="rest-img">Restaurant Image: </label>
+                    <br>
+                    <input type="file" id="rest-img" name="files[]" multiple>
+                    <div id="restaurant-image-div" width="150" height="150"></div>
+                    <br>
+                    <button type="submit" id="upload-btn" class="ui button">Upload Image</button>
+                </form>
             </div>
 
-            <div class="field required">
-                <label>Location</label>
-                <input type="text" name="restaurant-location" placeholder="Restaurant Location"
-                    id="restaurant-location">
-            </div>
-            <button type="submit" class="ui button">Add Restaurant</button>
-        </form>
+        </div>
         {{/if}}
-
     </div>
     <br>
     <br>
@@ -128,6 +144,8 @@
                     <div class="right floated content">
                         <button class="negative ui right floated button" id="delete-review-btn"
                             data-id="{{review.id}}"><i class="fa fa-trash"></i> Delete</button>
+                        <a href="/reviews/edit/{{review.id}}"><button class="positive ui right floated button"><i
+                                    class="fa fa-trash"></i> Edit</button></a>
                     </div>
                     <div class="content">
                         <div class="ui raised">
@@ -149,15 +167,10 @@
                 <h3>All Restaurants: </h3>
                 {{#each restaurants as |restaurant|}}
                 <div class="item">
-                    {{!-- Might remove restaurant delete function --}}
-                    <div class="right floated content">
-                        <button class="negative ui right floated button" id="delete-restaurant-btn"
-                            data-id="{{restaurant.id}}"><i class="fa fa-trash"></i> Delete</button>
-                    </div>
                     <div class="content">
                         <div class="ui raised">
-                            <h4><i class="fa fa-utensils"></i><a
-                                    href="/restaurants/{{restaurant.id}}"> {{restaurant.name}},
+                            <h4><i class="fa fa-utensils"></i><a href="/restaurants/{{restaurant.id}}">
+                                    {{restaurant.name}},
                                     {{restaurant.location}}</a></h4>
                         </div>
                     </div>
@@ -176,5 +189,6 @@
 </script>
 {{/if}}
 
+<script src="/js/Upload.js"></script>
 <script src="/js/review.js"></script>
 <script src="/js/addrestaurant.js"></script>

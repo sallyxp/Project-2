@@ -39,10 +39,12 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 // Update review from dashboard
 router.put('/edit/:id', withAuth, async (req, res) => {
+    console.log('heeeeeeeeeeeeeeeeeeerrrrreeeeeeeeeeee');
+
     try {
         const reviewData = await Review.update({
-            name: req.body.name,
-            description: req.body.description
+            title: req.body.title,
+            review_content: req.body.review_content
         },
             {
                 where: {
@@ -57,29 +59,6 @@ router.put('/edit/:id', withAuth, async (req, res) => {
         }
 
         res.status(200).json(reviewData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// Renders edit page for specific Review post
-router.get('/edit/:id', withAuth, async (req, res) => {
-
-    try {
-        const editReviewData = await Review.findByPk(req.params.id);
-
-        if (!editReviewData) {
-            res.status(404).json({ message: 'No review found with this id!' });
-            return;
-        }
-
-        const edit = editReviewData.get({ plain: true });
-
-        res.render('edit', {
-            edit,
-            logged_in: req.session.logged_in
-        });
-
     } catch (err) {
         res.status(500).json(err);
     }
