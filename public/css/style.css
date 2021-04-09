@@ -26,6 +26,7 @@ h1, h2 {
 
 .nav-bar {
     background-color: #D61940 !important;
+    color:white !important;
 }
 
 body {
@@ -41,9 +42,15 @@ body {
 /* Jumbotron styling */
 .jumbo-css {
     background-color: white !important;
-    color: white !important;
+
 }
 
 .home-text {
     text-align: center;
+}
+
+.reviews-title{
+    background-color: white;
+    padding: 10px;
+    text-shadow: 40px 40px #ffffff;
 }
