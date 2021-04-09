@@ -23,3 +23,34 @@ h1, h2 {
     color: gold !important;
     text-shadow: 0 0 10px yellow;
 }
+
+.nav-bar {
+    background-color: #D61940 !important;
+    color:white !important;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-image: url("../images/background-fast-food.jpg");
+}
+
+/* Navbar icon padding */
+.fas {
+    padding-left: 5px;
+}
+
+/* Jumbotron styling */
+.jumbo-css {
+    background-color: white !important;
+
+}
+
+.home-text {
+    text-align: center;
+}
+
+.reviews-title{
+    background-color: white;
+    padding: 10px;
+    text-shadow: 40px 40px #ffffff;
+}
