@@ -1,5 +1,5 @@
 <!-- User Comments -->
-<section class="ui card center">
+{{!-- <section class="ui card center raised">
     {{#each this}}
     <div class="content">
         <div class="description">
@@ -8,6 +8,20 @@
     </div>
     <div class="extra content">
         <p>posted by {{this.user.name}} on {{format_date date_created}}</p>
+    </div>
+    {{/each}}
+</section> --}}
+
+<section class="ui center raised">
+    {{#each this}}
+    <div class="comment">
+        <div class="content">
+            {{!-- <div class="metadata">
+                <span class="date">{{format_date date_created}}</span>
+            </div> --}}
+            <div class="text">{{this.comment_text}}</div>
+            <p class="metadata">posted by: {{this.user.name}} on {{format_date date_created}}</p>
+        </div>
     </div>
     {{/each}}
 </section>
