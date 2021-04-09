@@ -68,7 +68,9 @@ router.post('/', (req, res) => {
   console.log("here");
   Restaurant.create({
     name: req.body.name,
-    location: req.body.location
+    location: req.body.location,
+    // FOR IMAGE UPLOAD
+    img_url: req.body.img_url,
   })
     .then(RestaurantData => res.json(RestaurantData))
     .catch(err => {

@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const session = require('express-session');
 const path = require('path');
+const cloudinary = require('cloudinary-core');
 
 const helpers = require('./utils/helpers');
 

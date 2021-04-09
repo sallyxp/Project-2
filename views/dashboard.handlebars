@@ -78,8 +78,8 @@
         <br>
 
         {{#if logged_in}}
-        <div class="column">
-            <h3>Add a restaurant: </h3>
+        <h4>Add a restaurant: </h4>
+        <div>
             <form class="ui form new-restaurant-form">
                 <div class="field required">
                     <label>Restaurant Name: </label>
@@ -93,9 +93,22 @@
                 </div>
                 <button type="submit" class="ui button">Add Restaurant</button>
             </form>
+
+                    {{!-- IMAGE UPLOAD --}}
+
+            <div class="rest-img">
+                <form id="form">
+                    <label for="rest-img">Restaurant Image: </label>
+                    <br>
+                    <input type="file" id="rest-img" name="files[]" multiple>
+                    <div id="restaurant-image-div" width="150" height="150"></div>
+                    <br>
+                    <button type="submit" id="upload-btn" class="ui button">Upload Image</button>
+                </form>
+            </div>
+
         </div>
         {{/if}}
-
     </div>
     <br>
     <br>
@@ -176,5 +189,6 @@
 </script>
 {{/if}}
 
+<script src="/js/Upload.js"></script>
 <script src="/js/review.js"></script>
 <script src="/js/addrestaurant.js"></script>

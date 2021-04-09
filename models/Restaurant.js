@@ -22,6 +22,12 @@ Restaurant.init(
         type: DataTypes.STRING,
         allowNull: false
       },
+      // FOR IMAGE UPLOAD
+      img_url: {
+        type: DataTypes.STRING,
+        // defaultValue: "https://nerdist.com/wp-content/uploads/2020/07/maxresdefault-920x518.jpg",
+        allowNull: true,
+      },
     },
     {
       sequelize,
