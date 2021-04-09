@@ -78,32 +78,34 @@
 
         {{#if logged_in}}
         <h4>Add a restaurant: </h4>
-        <form class="ui form new-restaurant-form">
-            <div class="field required">
-                <label>Restaurant Name: </label>
-                <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
-            </div>
+        <div>
+            <form class="ui form new-restaurant-form">
+                <div class="field required">
+                    <label>Restaurant Name: </label>
+                    <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
+                </div>
 
-            <div class="field required">
-                <label>Location</label>
-                <input type="text" name="restaurant-location" placeholder="Restaurant Location"
-                    id="restaurant-location">
-            </div>
-
-{{!-- IMAGE UPLOAD --}}
+                <div class="field required">
+                    <label>Location</label>
+                    <input type="text" name="restaurant-location" placeholder="Restaurant Location"
+                        id="restaurant-location">
+                </div>
+                <button type="submit" class="ui button">Add Restaurant</button>
+            </form>
+                    {{!-- IMAGE UPLOAD --}}
 
             <div class="rest-img">
-                <form id="form" method="post" enctype="multipart/form-data">
+                <form id="form">
                     <label for="rest-img">Restaurant Image: </label>
+                    <br>
                     <input type="file" id="rest-img" name="files[]" multiple>
-                    <div id="restaurant-image" width="150" height="150"></div>
+                    <div id="restaurant-image-div" width="150" height="150"></div>
+                    <br>
                     <button type="submit" id="upload-btn" class="ui button">Upload Image</button>
                 </form>
             </div>
 
-            
-            <button type="submit" class="ui button">Add Restaurant</button>
-        </form>
+        </div>
         {{/if}}
     </div>
     <br>
