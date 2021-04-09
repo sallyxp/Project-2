@@ -30,8 +30,7 @@ async function newFormHandler(event) {
 
   if (response.ok) {
     // send to page that shows all restaurants
-    // document.location.replace('/dashboard');
-    alert("Success");
+    document.location.replace('/dashboard');
   } else {
     alert(response.statusText);
   }
