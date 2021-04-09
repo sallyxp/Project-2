@@ -1,4 +1,4 @@
-<div class="ui raised very padded text container segment">
+<div class="ui raised  container segment">
     <h3>Review for {{restaurant.name}}, {{restaurant.location}} </h3>
     <p>posted by {{user.name}} on {{format_date date_created}}</p>
     <h4>{{title}}</h4>
@@ -7,7 +7,7 @@
 </div>
 
 
-<div class="ui comments raised container segment">
+<div class="ui comments raised container segment very padded text">
     <h4 class="ui dividing header">Comments: </h4>
     {{> comment comments}}
 </div>
@@ -15,10 +15,10 @@
 
 <br>
 
-<div class="row">
-    <div class="column">
+{{!-- <div class="row">
+    <div class="column"> --}}
         {{#if logged_in}}
-        <div class="ui raised very padded container" id="comment-section">
+        <div class="ui raised very padded text container segment" id="comment-section">
             <h4>Comment on this post: </h4>
             <form class="ui form new-comment-form">
 
@@ -31,8 +31,8 @@
             </form>
         </div>
         {{/if}}
-    </div>
-</div>
+    {{!-- </div>
+</div> --}}
 
 <br>
 
