@@ -21,9 +21,9 @@
                         <div class="default text">Select Restaurant</div>
                         <div class="menu">
                             {{#each restaurants as |restaurant|}}
-                             <div class="item" data-value="{{restaurant.id}}" value="{{restaurant.id}}">
-                                   {{restaurant.name}}, {{restaurant.location}}
-                             </div>
+                            <div class="item" data-value="{{restaurant.id}}" value="{{restaurant.id}}">
+                                {{restaurant.name}}, {{restaurant.location}}
+                            </div>
                             {{/each}}
                         </div>
                     </div>
@@ -101,32 +101,50 @@
 
     {{#if user.reviews.length}}
     <div class="row">
-        <div class="column">
-            <h3>Your Reviews: </h3>
-            {{#each user.reviews as |review|}}
-            <div class="ui raised">
-                <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
+        <div class="column review-list">
+            <div class="ui middle aligned divided list">
+                <h3>Your Reviews: </h3>
+                {{#each user.reviews as |review|}}
+                <div class="item">
+                    <div class="right floated content">
+                        <button class="negative ui right floated button" id="delete-review-btn"
+                            data-id="{{review.id}}"><i class="fa fa-trash"></i> Delete</button>
+                    </div>
+                    <div class="content">
+                        <div class="ui raised">
+                            <h4><i class="fa fa-hamburger"></i><a href="/reviews/{{review.id}}"> {{review.title}}</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
             </div>
-            <div class="ui" id="delete-review">
-                <button type="submit" class="ui button" id="delete-review-btn" data-id="{{review.id}}">Delete</button>
-            </div>
-            {{/each}}
         </div>
-        {{/if}}
     </div>
+    {{/if}}
 
     {{#if restaurants.length}}
     <div class="row">
         <div class="column">
-            <h3>All Restaurants: </h3>
-            {{#each restaurants as |restaurant|}}
-            <div class="ui raised">
-                <h4><a href="/restaurants/{{restaurant.id}}">{{restaurant.name}}, {{restaurant.location}}</a></h4>
+            <div class="ui middle aligned divided list">
+                <h3>All Restaurants: </h3>
+                {{#each restaurants as |restaurant|}}
+                <div class="item">
+                    {{!-- Might remove restaurant delete function --}}
+                    <div class="right floated content">
+                        <button class="negative ui right floated button" id="delete-restaurant-btn"
+                            data-id="{{restaurant.id}}"><i class="fa fa-trash"></i> Delete</button>
+                    </div>
+                    <div class="content">
+                        <div class="ui raised">
+                            <h4><i class="fa fa-utensils"></i><a
+                                    href="/restaurants/{{restaurant.id}}"> {{restaurant.name}},
+                                    {{restaurant.location}}</a></h4>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
             </div>
-            <div class="ui" id="delete-restaurant">
-                <button type="submit" class="ui button" id="delete-restaurant-btn" data-id="{{restaurant.id}}">Delete</button>
-            </div>
-            {{/each}}
         </div>
         {{/if}}
     </div>
