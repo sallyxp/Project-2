@@ -56,30 +56,20 @@ const editReviewHandler = async (event) => {
 };
 
 // 3- DELETE REVIEW: fetch delete route
-const delButtonHandler = async () => {
+const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+        const response = await fetch(`/api/reviews/${id}`, {
+            method: 'DELETE',
+        });
 
-    // const response = await fetch(`/api/reviews/${id}`, {
-    //     method: 'DELETE',
-    // });
-    // ---> not sure which one will work
-    const response = await fetch(`/api/reviews/${id}`, {
-        method: 'DELETE',
-        body: JSON.stringify({
-            id: id
-        }),
-        headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert('Failed to delete review');
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert('Failed to delete review');
+        }
     }
-
 };
 
 // 4- POST IMAGE TO API
@@ -97,5 +87,5 @@ document
 
 // 5c- delete button listener
 document
-  .querySelector('#delete-review-btn')
-  .addEventListener('click', delButtonHandler);
+    .querySelector('.review-list')
+    .addEventListener('click', delButtonHandler);

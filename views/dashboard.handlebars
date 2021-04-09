@@ -101,14 +101,14 @@
 
     {{#if user.reviews.length}}
     <div class="row">
-        <div class="column">
+        <div class="column review-list">
             <h3>Your Reviews: </h3>
             {{#each user.reviews as |review|}}
             <div class="ui raised">
                 <h4><a href="/reviews/{{review.id}}">{{review.title}}</a></h4>
             </div>
             <div class="ui" id="delete-review">
-                <button type="submit" class="ui button" id="delete-review-btn" data-id="{{review.id}}">Delete</button>
+                <button class="ui button" id="delete-review-btn" data-id="{{review.id}}">Delete</button>
             </div>
             {{/each}}
         </div>
