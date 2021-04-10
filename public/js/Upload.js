@@ -1,5 +1,5 @@
-//Upload product image 
-//Main URL to cloudinary
+// Upload restaurant image 
+
 const url = "https://api.cloudinary.com/v1_1/dibssvjip/image/upload/";
 const form = document.getElementById("form");
 // AskBCS test - Matthew, my guy
