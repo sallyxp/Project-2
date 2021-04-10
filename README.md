@@ -50,6 +50,6 @@
   Telegram: https://t.me/G_Cope97
 
   #### Contributors
-  Alisha Saleh  - https://github.com/AlishaSaleh
-  Olivia Owen   - https://github.com/oliviaowen1
+  Alisha Saleh  - https://github.com/AlishaSaleh  
+  Olivia Owen   - https://github.com/oliviaowen1  
   Sally Rodgers - https://github.com/sallyxp
