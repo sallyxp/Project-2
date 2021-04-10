@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="column">
+        <div class="ui raised very padded text container segment">
+            {{#if restaurants.length}}
+            <div class="row">
+                <img src="/images/FFS_Logo.png" alt="FFS Logo" class="ui centered small image">
+                <div class="column">
+                    <h3>Restaurants: </h3>
+                    {{#each restaurants as |restaurant|}}
+                    <div class="ui raised">
+                        <h4><i class="fa fa-utensils" id="rest-icon"></i><a href="/restaurants/{{restaurant.id}}">{{restaurant.name}}, {{restaurant.location}}</a></h4>
+                    </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

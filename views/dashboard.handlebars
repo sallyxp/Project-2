@@ -1,0 +1,200 @@
+<div class="ui raised very padded text container segment">
+    <h2 class="ui header">{{user.name}}'s Dashboard</h2>
+    {{!-- Add conditional statement around New REview section to only show if restaurants exists, else show something to
+    say 'Add a restaurant first' --}}
+    <hr>
+    <div class="row">
+        {{#if restaurants.length}}
+        <div class="column">
+            <h3>Write a New Review: </h3>
+            <form class="ui form review-form">
+
+                <div class="field required">
+                    <label>Title</label>
+                    <input type="text" name="review-title" placeholder="Title" id="review-title">
+                </div>
+
+                <div class="field required">
+                    <label>Select a Restaurant</label>
+                    <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="restaurant-select" id="restaurant-select">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Select Restaurant</div>
+                        <div class="menu">
+                            {{#each restaurants as |restaurant|}}
+                            <div class="item" data-value="{{restaurant.id}}" value="{{restaurant.id}}">
+                                {{restaurant.name}}, {{restaurant.location}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field required">
+                    <label>How many stars would you give this restaurant?</label>
+
+
+                    <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="review-rating" id="review-rating">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Select Rating</div>
+                        <div class="menu">
+                            <div class="item" data-value="1" value="1">
+                                <i class="star icon rating-stars"></i>
+                                1
+                            </div>
+                            <div class="item" data-value="2" value="2">
+                                <i class="star icon rating-stars"></i><i class="star icon rating-stars"></i>
+                                2
+                            </div>
+                            <div class="item" data-value="3" value="3">
+                                <i class="star icon rating-stars"></i><i class="star icon rating-stars"></i><i
+                                    class="star icon rating-stars"></i>
+                                3
+                            </div>
+                            <div class="item" data-value="4" value="4">
+                                <i class="star icon rating-stars"></i><i class="star icon rating-stars"></i><i
+                                    class="star icon rating-stars"></i><i class="star icon rating-stars"></i>
+                                4
+                            </div>
+                            <div class="item" data-value="5" value="5">
+                                <i class="star icon rating-stars"></i><i class="star icon rating-stars"></i><i
+                                    class="star icon rating-stars"></i><i class="star icon rating-stars"></i><i
+                                    class="star icon rating-stars"></i>
+                                5
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field required">
+                        <label>Review</label>
+                        <textarea id="review-body" name="review-body" placeholder="Review"></textarea>
+                    </div>
+
+                    <button type="submit" class="ui button">Submit</button>
+            </form>
+        </div>
+        {{/if}}
+
+        <br>
+    <hr>
+    <br>
+
+        {{#if logged_in}}
+
+        {{!-- IMAGE UPLOAD --}}
+        <h3>Add a restaurant: </h3>
+        <div class="rest-img">
+            <h4>First, add an image: </h4>
+            <form id="form">
+                <label for="rest-img">Restaurant Image: </label>
+                <br>
+                <input type="file" id="rest-img" name="files[]" multiple>
+                <div id="restaurant-image-div" width="150" height="150"></div>
+                <br>
+                <button type="submit" id="upload-btn" class="ui button">Upload Image</button>
+            </form>
+        </div>
+        <br>
+        <div>
+            <form class="ui form new-restaurant-form">
+                <div class="field required">
+                    <label>Restaurant Name: </label>
+                    <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
+                </div>
+
+                <div class="field required">
+                    <label>Location</label>
+                    <input type="text" name="restaurant-location" placeholder="Restaurant Location"
+                        id="restaurant-location">
+                </div>
+                <button type="submit" class="ui button">Add Restaurant</button>
+            </form>
+
+        </div>
+        {{/if}}
+    </div>
+
+    {{!-- {{#if logged_in}}
+    <div class="ui raised very padded container segment">
+        <h4>Add a restaurant: </h4>
+        <form class="ui form new-restaurant-form">
+            <div class="field required">
+                <label>Restaurant Name: </label>
+                <input type="text" name="restaurant-name" placeholder="Restaurant Name" id="restaurant-name">
+            </div>
+
+            <div class="field required">
+                <label>Location</label>
+                <input type="text" name="restaurant-location" placeholder="Restaurant Location"
+                    id="restaurant-location">
+            </div>
+            <button type="submit" class="ui button">Add Restaurant</button>
+        </form>
+    </div>
+    {{/if}} --}}
+
+    <br>
+    <hr>
+    <br>
+
+    {{#if user.reviews.length}}
+    <div class="row">
+        <div class="column review-list">
+            <div class="ui middle aligned divided list">
+                <h3>Your Reviews: </h3>
+                {{#each user.reviews as |review|}}
+                <div class="item">
+                    <div class="right floated content">
+                        <button class="negative ui right floated button" id="delete-review-btn"
+                            data-id="{{review.id}}"><i class="fa fa-trash"></i> Delete</button>
+                        <a href="/reviews/edit/{{review.id}}"><button class="positive ui right floated button"><i
+                                    class="fa fa-edit"></i> Edit</button></a>
+                    </div>
+                    <div class="content">
+                        <div class="ui raised">
+                            <h4><i class="fa fa-hamburger"></i><a href="/reviews/{{review.id}}"> {{review.title}}</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <br>
+    <hr>
+    <br>
+    {{#if restaurants.length}}
+    <div class="row">
+        <div class="column">
+            <div class="ui middle aligned divided list">
+                <h3>All Restaurants: </h3>
+                {{#each restaurants as |restaurant|}}
+                <div class="item">
+                    <div class="content">
+                        <div class="ui raised">
+                            <h4><i class="fa fa-utensils" id="rest-icon"></i><a href="/restaurants/{{restaurant.id}}">
+                                    {{restaurant.name}},
+                                    {{restaurant.location}}</a></h4>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+{{#if logged_in}}
+<script src="/js/script.js"></script>
+<script>
+
+</script>
+{{/if}}
+
+<script src="/js/Upload.js"></script>
+<script src="/js/review.js"></script>
+<script src="/js/addrestaurant.js"></script>

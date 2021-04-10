@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="column">
+        <div class="ui raised very padded text container segment">
+            <h1 class="ui header">
+                {{name}}
+            </h1>
+            <h2 class="ui sub header">{{location}}</h2>
+            <br>
+            <img src="{{img_url}}" class="ui centered medium image">
+
+            {{#if reviews.length}}
+            <div class="row">
+                <h3>Reviews for this restaurant: </h3>
+                <div class="ui cards">
+                    {{#each reviews as |review|}}
+
+                    <div class="card">
+                        <div class="content">
+                            <div class="ui header">
+                                <h3><a href="/reviews/{{review.id}}">{{review.title}}</a></h3>
+                            </div>
+                            <div class="ui star rating" data-rating="{{review.rating}}" data-max-rating="5"></div>
+
+                            <div class="description">
+                                {{review.review_content}}
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            posted by {{user.name}} on {{format_date date_created}}
+                        </div>
+                        <a href="/reviews/{{review.id}}">
+                            <div class="ui bottom yellow attached button">
+                                <i class="add icon"></i>
+                                Add Comment
+                            </div>
+                        </a>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+
+
+            <br>
+            <div class="row">
+                <div class="column">
+                    <a href="/dashboard">
+                        <button class="positive ui right floated button">
+                            <i class="add icon"></i> Add Review
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/script.js"></script>

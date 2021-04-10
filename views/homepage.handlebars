@@ -1,0 +1,57 @@
+<!-- Jumbotron equivelant/w search -->
+<div class="ui massive message jumbo-css">
+    <div class="ui container">
+        <img src="/images/FFS_Logo.png" alt="FFS Logo" class="ui centered medium image">
+        <h2 class="ui huge header white">Welcome to Few Fries Short!</h2>
+        <p class="home-text">
+            View and create reviews of your local fast food restaurants!
+            <br> See real reviews, images and stories from those who have tried and tested!
+        </p>
+    
+    </div>
+</div>
+<div class="ui raised very padded container segment">
+    {{#if reviews.length}}
+    <div class="row">
+        <div class="column">
+
+            <h1 class="reviews-title">All Reviews </h1>
+            <div class="ui cards">
+                {{#each reviews as |review|}}
+
+                <div class="card">
+                    <div class="content">
+                        <div class="ui header">
+                            <h3><a href="/reviews/{{review.id}}">{{review.title}}</a></h3>
+
+                            <div class="meta">
+                                <h5>Review of <a
+                                        href="/restaurants/{{review.restaurant.id}}">{{review.restaurant.name}},
+                                        {{review.restaurant.location}}</a></h5>
+                            </div>
+                        </div>
+                        <div class="ui star rating" data-rating="{{review.rating}}" data-max-rating="5"></div>
+
+                        <div class="description">
+                            {{review.review_content}}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        posted by {{user.name}} on {{format_date date_created}}
+                    </div>
+                    <a href="/reviews/{{review.id}}">
+                        <div class="ui bottom yellow attached button">
+                            <i class="add icon"></i>
+                            Add Comment
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</div>
+
+
+<script src="/js/script.js"></script>
