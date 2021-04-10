@@ -28,10 +28,10 @@
   ### Usage
   The following screenshots will demonstrate the usage of the site: 
   ![Screenshot #1](/images/Landingpage.png)
-  ![Screenshot #1](/images/Signup.png)
-  ![Screenshot #1](/images/RestaurantPage.png)
-  ![Screenshot #1](/images/reviewadd.png)
-  ![Screenshot #1](/images/showspictures.png)
+  ![Screenshot #2](/images/Signup.png)
+  ![Screenshot #3](/images/Restaurantpage.png)
+  ![Screenshot #4](/images/Reviewadd.png)
+  ![Screenshot #5](/images/showspictures.png)
 
   ### License ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT) 
  
