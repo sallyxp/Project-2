@@ -107,7 +107,7 @@ Alisha Saleh
 Sally Rodgers
 
 ## *Contact Us*
-- Github: **[sallyxp](github.com/sallyxp)
+- Github: **[Project-2](https://github.com/MyDryDay/Project-2)
 - LinkedIn: **[Sally Rodgers](www.linkedin.com/in/sallyhello1)  
 - Email: **[sallyhello1@yahoo.com](mailto:sallyhello1@yahoo.com)
 
