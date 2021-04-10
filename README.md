@@ -13,7 +13,9 @@ Our approach has been to create a blog style review site where a user can read, 
 
 ## *The Database Schema* 
 
-![alt text](/ReadmeImages/EntityRelDiagram.png)
+The database schema should match the given design below
+
+![alt text](/Images/EntityRelDiagram.png)
 
 The app is deployed in Heroku here: https://few-fries-short.herokuapp.com/
 
@@ -26,8 +28,7 @@ MVC is a way to organize your code’s core functions into their own, neatly org
 
 The parts of MVC Model: Model code typically reflects real-world things. This code can hold raw data, or it will define the essential components of your app. For instance, if you were building a To-do app, the model code would define what a “task” is and what a “list” is – since those are the main components of a todo app. View: View code is made up of all the functions that directly interact with the user. This is the code that makes your app look nice, and otherwise defines how your user sees and interacts with it. Controller: Controller code acts as a liaison between the Model and the View, receiving user input and deciding what to do with it. It’s the brains of the application, and ties together the model and the view.
 
-The database schema should match the given design below
-![alt text](/Images/Schema.png)
+
 
 ## *Table of Contents*
 - [Installation](#installation)
@@ -40,13 +41,13 @@ The database schema should match the given design below
 
 ## *Installation*
 
-*To run, the user just has to access the Heroku link shown above. *
+**To run, the user just has to access the Heroku link shown above.**
 
 However to run the program, the user must clone all files from this repository.  It is important that the file locations remain the same in relation to each other.
 
 To run the program, the database must be running.  The program has been written using MySQL Workbench and using Visual Studio.  
 
-## *A Few Fries Short*
+## **A Few Fries Short**
 
 ![alt text](/Images/Landingpage.png) 
 
@@ -67,28 +68,35 @@ The user is able to add a photo to the page:
 
 ## Packages ##
 Bcrypt
+
 Sequelize
+
 Dotenv
+
 Express
+
 Handlebars
+
 MySQL2
+
 Cloudinary
+
 Node
+
 Heroku
+
 Semantic UI
+
 Javascript
+
 CSS
+
 
 ## Credits ##
 1. BCS for their timely help
 
 2. Paul and Chiggy for their help in class
-
-3. All the team:    Geroge Cope
-                    Olivia Owen
-                    Alisha Saleh
-                    Sally Rodgers
-                    
+                  
 ## *Contributing and Questions*
 For any suggestions or questions, please feel free to contact me via my Github page. (github.com/sallyxp)
 
