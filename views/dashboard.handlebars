@@ -2,6 +2,7 @@
     <h2 class="ui header">{{user.name}}'s Dashboard</h2>
     {{!-- Add conditional statement around New REview section to only show if restaurants exists, else show something to
     say 'Add a restaurant first' --}}
+    <hr>
     <div class="row">
         {{#if restaurants.length}}
         <div class="column">
@@ -76,9 +77,25 @@
         {{/if}}
 
         <br>
+    <hr>
+    <br>
 
         {{#if logged_in}}
-        <h4>Add a restaurant: </h4>
+
+        {{!-- IMAGE UPLOAD --}}
+        <h3>Add a restaurant: </h3>
+        <div class="rest-img">
+            <h4>First, add an image: </h4>
+            <form id="form">
+                <label for="rest-img">Restaurant Image: </label>
+                <br>
+                <input type="file" id="rest-img" name="files[]" multiple>
+                <div id="restaurant-image-div" width="150" height="150"></div>
+                <br>
+                <button type="submit" id="upload-btn" class="ui button">Upload Image</button>
+            </form>
+        </div>
+        <br>
         <div>
             <form class="ui form new-restaurant-form">
                 <div class="field required">
@@ -94,24 +111,9 @@
                 <button type="submit" class="ui button">Add Restaurant</button>
             </form>
 
-                    {{!-- IMAGE UPLOAD --}}
-
-            <div class="rest-img">
-                <form id="form">
-                    <label for="rest-img">Restaurant Image: </label>
-                    <br>
-                    <input type="file" id="rest-img" name="files[]" multiple>
-                    <div id="restaurant-image-div" width="150" height="150"></div>
-                    <br>
-                    <button type="submit" id="upload-btn" class="ui button">Upload Image</button>
-                </form>
-            </div>
-
         </div>
         {{/if}}
     </div>
-    <br>
-    <br>
 
     {{!-- {{#if logged_in}}
     <div class="ui raised very padded container segment">
@@ -133,6 +135,8 @@
     {{/if}} --}}
 
     <br>
+    <hr>
+    <br>
 
     {{#if user.reviews.length}}
     <div class="row">
@@ -145,7 +149,7 @@
                         <button class="negative ui right floated button" id="delete-review-btn"
                             data-id="{{review.id}}"><i class="fa fa-trash"></i> Delete</button>
                         <a href="/reviews/edit/{{review.id}}"><button class="positive ui right floated button"><i
-                                    class="fa fa-trash"></i> Edit</button></a>
+                                    class="fa fa-edit"></i> Edit</button></a>
                     </div>
                     <div class="content">
                         <div class="ui raised">
@@ -159,7 +163,9 @@
         </div>
     </div>
     {{/if}}
-
+    <br>
+    <hr>
+    <br>
     {{#if restaurants.length}}
     <div class="row">
         <div class="column">
@@ -169,7 +175,7 @@
                 <div class="item">
                     <div class="content">
                         <div class="ui raised">
-                            <h4><i class="fa fa-utensils"></i><a href="/restaurants/{{restaurant.id}}">
+                            <h4><i class="fa fa-utensils" id="rest-icon"></i><a href="/restaurants/{{restaurant.id}}">
                                     {{restaurant.name}},
                                     {{restaurant.location}}</a></h4>
                         </div>

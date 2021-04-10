@@ -10,7 +10,7 @@
     
     </div>
 </div>
-<div class="ui container">
+<div class="ui raised very padded container segment">
     {{#if reviews.length}}
     <div class="row">
         <div class="column">
@@ -40,7 +40,7 @@
                         posted by {{user.name}} on {{format_date date_created}}
                     </div>
                     <a href="/reviews/{{review.id}}">
-                        <div class="ui bottom attached button">
+                        <div class="ui bottom yellow attached button">
                             <i class="add icon"></i>
                             Add Comment
                         </div>
