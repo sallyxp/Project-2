@@ -31,7 +31,7 @@
   ![Screenshot #2](/images/Signup.png)
   ![Screenshot #3](/images/Restaurantpage.png)
   ![Screenshot #4](/images/Reviewadd.png)
-  ![Screenshot #5](/images/showspictures.png)
+  ![Screenshot #5](/images/showspicture.png)
 
   ### License ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT) 
  
