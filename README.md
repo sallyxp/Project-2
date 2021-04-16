@@ -15,7 +15,7 @@ Our approach has been to create a blog style review site where a user can read, 
 
 The database schema should match the given design below
 
-![alt text](/Images/EntityRelDiagram.png)
+![alt text](/images/EntityRelDiagram.png)
 
 The app is deployed in Heroku here: https://few-fries-short.herokuapp.com/
 
@@ -54,22 +54,22 @@ Alternatively, to run the files:
 
 ## **A Few Fries Short**
 
-![alt text](/Images/Landingpage.png) 
+![alt text](/images/Landingpage.png) 
 
 The landing page shows any reviews added to the site and allows the user to navigate to the restaurant, to login (to enable the ability to contribute to the site) and to go to the signup page as a new user.
 
-![alt text](/Images/Restaurantpage.png)
+![alt text](/images/Restaurantpage.png)
 This page enables the user to select the Restaurant to view existing information on restaurants already added to the site.  Additionally there is a button which enables you to add a review but only if you have signed up to the site.  So the user has to login or signup first.
 
-![alt text](/Images/Restaurantpage.png)
+![alt text](/images/Restaurantpage.png)
 
 The user, once successfully signed up, can add a review to an existing Restaurant or for a new one by completing the Add a restaurant at the bottom of the page:
 
-![alt text](/Images/reviewadd.png)
+![alt text](/images/reviewadd.png)
 
 The user is able to add a photo to the page:
 
-![alt text](/Images/showspicture.png)
+![alt text](/images/showspicture.png)
 
 ## Packages ##
 Bcrypt
