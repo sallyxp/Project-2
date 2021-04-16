@@ -42,10 +42,15 @@ The parts of MVC Model: Model code typically reflects real-world things. This co
 ## *Installation*
 
 **To run, the user just has to access the Heroku link shown above.**
-
-However to run the program, the user must clone all files from this repository.  It is important that the file locations remain the same in relation to each other.
-
-To run the program, the database must be running.  The program has been written using MySQL Workbench and using Visual Studio.  
+Alternatively, to run the files:
+  1. Clone / Download this repository. 
+  2. Open the schema.sql file in mySQL workbench (located in the db folder). 
+  3. Run the query within. 
+  4. Navigate to the root of the repository with a CLI of your choice.
+  5. Add a '.env' file and add credentials for 'DB_NAME', 'DB_USER' & 'DB_PASSWORD' (DB_NAME is ffs_db).
+  6. Type 'npm install' and press the enter key. 
+  7. Type 'node server.js' and press the enter key. 
+  8. Open a browser of your choice and navigate to http://localhost:3001.  
 
 ## **A Few Fries Short**
 
@@ -101,15 +106,20 @@ CSS
 For any suggestions or questions, please feel free to contact me via my Github page. (github.com/sallyxp)
 
 ## *Authors*
-George Cope
-Olivia Owen
-Alisha Saleh
-Sally Rodgers
+George Cope   https://github.com/MyDryDay
+
+Olivia Owen   https://github.com/oliviaowen1
+
+Alisha Saleh  https://github.com/AlishaSaleh
+
+Sally Rodgers https://github.com/sallyxp
 
 ## *Contact Us*
 - Github: **[sallyxp](github.com/sallyxp)
 - LinkedIn: **[Sally Rodgers](www.linkedin.com/in/sallyhello1)  
+- LinkedIn: **[George Cope](www.linkedin.com/in/george-cope-633b761bb)
 - Email: **[sallyhello1@yahoo.com](mailto:sallyhello1@yahoo.com)
+
 
 This project is MIT licensed. ![license](https://img.shields.io/static/v1?label=license&message=MIT&color=blueviolet) 
 &copy; 2021 FFS Team
