@@ -1,4 +1,4 @@
-# Project-2
+# a Few Fries Short
 This is a project to create a Content Management System (CMS) restuarant review site to publish restaurant reviews, and subsequent comments and thoughts about restaurants and fast food outlets. It is created using the Model-View-Controller paradigm. The system is created using node.js, handlebars.js, Sequelize and mySQL2.
 
 ## *User Story*
